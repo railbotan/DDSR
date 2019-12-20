@@ -35,3 +35,11 @@ app.get("/", (_, res) => {
 });
 
 app.listen(port, () => console.log(`App listening on port ${port}`));
+
+app.get("/json", (req, res) => {
+    res.json({ 'login' : 'lol', 'password' : 'kek' });
+});
+
+app.get('/user/:id', function (req, res, next) {
+    res.end(req.params.id);
+});
