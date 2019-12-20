@@ -1,0 +1,30 @@
+<header class="head">
+    <span>Quiz</span>
+    <span>Score: {{score}}</span>
+</header>
+<div class="content">
+    <form action="" method="post" class="question-form" enctype="multipart/form-data">
+        <div class="questions">
+        {{#each questions}}
+            <div class="card">
+                <img src={{imageURL}}>
+                <section class="question">
+                    <h5>{{name}}</h5>
+                    {{#each options}}
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio{{index}}+{{optionIndex}}" name="{{index}}" class="custom-control-input" value={{optionIndex}}>
+                            <label class="custom-control-label" for="customRadio{{index}}+{{optionIndex}}">{{option}}</label>
+                        </div>
+                    {{/each}}
+                </section>
+            </div>
+        {{/each}}
+        </div>
+        <div class="submit-wrapper">
+            <button type="submit" class="btn btn-primary">Проверить!</button>
+        </div>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
