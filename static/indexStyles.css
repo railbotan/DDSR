@@ -9,27 +9,48 @@
     padding-right: 9px;
 }
 .workSession{
-    width: 49%;
-    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: calc(30% + 200px);
+    height: 60%;
     border-radius: 10px;
-    background: #A3ED87;
+    background: #F2F2F2;
     font-size: 30px;
     align-content: center;
+    margin: 50px 0;
 }
-.main{
+
+.buttonStyle{
+    background: #1D85D0;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+    font-size: 36px;
+    margin: 10%;
+}
+.input{
+    width: 80%;
+    font-size: 36px;
+    margin: 10%;
+}
+#idInput{
+    width: 70%;
+}
+#createButton{
+    width: 80%;
+}
+
+.content{
+    height: 80vh;
+    width: 80vw;
+    margin:auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: center;
     justify-content: space-around;
-    height: 100%;
-    width: 100%;
 }
-#create{
-    background: darkolivegreen;
-    font-size: 20px;
-}
-.content{
-    height: 80vh;
-    width: 80vh;
-    margin: 100px auto;
-}
+html{background: #E5E5E5; }
+main{background: #E5E5E5; }
