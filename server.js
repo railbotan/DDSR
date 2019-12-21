@@ -48,6 +48,12 @@ app.get("/create", (req, res) => {
     });
 });
 
+app.get("/pulse", (req, res) => {
+    res.render("html/LecturePulse.hbs", {
+        layout: "default",
+    });
+});
+
 const server = app.listen(port, () => console.log(`App listening on port ${port}`));
 
 const wss = new WebSocket.Server({
