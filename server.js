@@ -41,10 +41,10 @@ app.get("/", (_, res) => {
 });
 
 app.get("/create", (req, res) => {
-    sessions.set(sessionId++, []);
+    sessions.set(++sessionId, []);
     res.render("html/session.hbs", {
         layout: "default",
-        id: sessionId++,
+        id: sessionId,
     });
 });
 
