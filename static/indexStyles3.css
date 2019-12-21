@@ -1,0 +1,10 @@
+.section{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    font-size: 36px;
+}
+.buttonFinish{
+    width: 30%;
+}
+
