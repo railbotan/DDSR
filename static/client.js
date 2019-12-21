@@ -1,7 +1,5 @@
-document.querySelector("#createButton").addEventListener("submit", async e => {
-    let response = await fetch("/create");
-    if (response.ok)
-        let json = await response.json();
+document.getElementById("createButton").addEventListener("click", e => {
+    console.log("w1wsedrtfrdbhrgh");
 });
 
 document.querySelector("#connect").addEventListener("submit", e => {
