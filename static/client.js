@@ -1,8 +1,9 @@
-document.getElementById("createButton").addEventListener("click", e => {
+document.querySelector(".buttonStyle").addEventListener("click", e => {
     console.log("w1wsedrtfrdbhrgh");
 });
 
 document.querySelector("#connect").addEventListener("submit", e => {
+    console.log("asdadsas");
     e.preventDefault();
     main(new FormData(e.currentTarget).get("id"));
 });
