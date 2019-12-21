@@ -1,3 +1,4 @@
+import WebSocket from "ws";
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
@@ -5,6 +6,7 @@ const cookieParser = require("cookie-parser");
 const hbs = require("express-handlebars");
 const multer  = require('multer');
 const upload = multer();
+
 
 const rootDir = process.cwd();
 const port = process.env.PORT || 5000;
@@ -15,7 +17,7 @@ let sessions = new Map();
 
 let sessionId = 0;
 
-app.use(express.static('static'));
+app.use(express.static('static/'));
 
 app.use(cookieParser());
 
@@ -39,19 +41,22 @@ app.get("/", (_, res) => {
 });
 
 app.get("/create", (req, res) => {
-    map.add(sessionId++, new Map());
+    sessions.set(sessionId++, []);
     res.render("html/session.hbs", {
         layout: "default",
         id: sessionId++,
     });
 });
 
-app.listen(port, () => console.log(`App listening on port ${port}`));
+const server = app.listen(port, () => console.log(`App listening on port ${port}`));
 
-app.get("/json", (req, res) => {
-    res.json({ 'login' : 'lol', 'password' : 'kek' });
+const wss = new WebSocket.Server({
+    noServer: true,
 });
 
-app.get('/user/:id', function (req, res, next) {
-    res.end(req.params.id);
+wss.on('connection', function connection(ws) {
+    ws.on("message", e => {
+        let obj = JSON.parse(e);
+        sessions.get(obj.id).push({ smile: obj.smile, time: obj.time });
+    });
 });
