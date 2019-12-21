@@ -1,3 +1,9 @@
+document.querySelector("#createButton").addEventListener("submit", async e => {
+    let response = await fetch("/create");
+    if (response.ok)
+        let json = await response.json();
+});
+
 document.querySelector("#connect").addEventListener("submit", e => {
     e.preventDefault();
     main(new FormData(e.currentTarget).get("id"));
