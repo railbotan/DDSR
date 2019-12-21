@@ -11,6 +11,10 @@ const port = process.env.PORT || 5000;
 
 const app = express();
 
+let sessions = new Map();
+
+let sessionId = 0;
+
 app.use(express.static('static'));
 
 app.use(cookieParser());
@@ -31,6 +35,14 @@ app.engine(
 app.get("/", (_, res) => {
     res.render("html/index.hbs", {
         layout: "default"
+    });
+});
+
+app.get("/create", (req, res) => {
+    map.add(sessionId++, new Map());
+    res.render("html/session.hbs", {
+        layout: "default",
+        id: sessionId++,
     });
 });
 
